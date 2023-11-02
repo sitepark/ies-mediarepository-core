@@ -5,6 +5,9 @@ import javax.inject.Inject;
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
 
+/**
+ * Adds a reference to the medium.
+ */
 public final class AddReference {
 
 	private final MediaRepository repository;

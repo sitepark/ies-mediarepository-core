@@ -6,6 +6,9 @@ import com.sitepark.ies.mediarepository.core.domain.exception.AccessDeniedExcept
 import com.sitepark.ies.mediarepository.core.port.AccessControl;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
 
+/**
+ * Removes a medium
+ */
 public final class RemoveMedia {
 
 	private final MediaRepository repository;

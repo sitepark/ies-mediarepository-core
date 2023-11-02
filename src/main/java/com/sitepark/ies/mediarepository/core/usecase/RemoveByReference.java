@@ -9,6 +9,11 @@ import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReferenceType;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
 
+/**
+ * Removes a medium via its reference. If this is the only or last reference
+ * of the medium, the medium is deleted. Otherwise, only the reference is
+ * removed.
+ */
 public final class RemoveByReference {
 
 	private final MediaRepository repository;

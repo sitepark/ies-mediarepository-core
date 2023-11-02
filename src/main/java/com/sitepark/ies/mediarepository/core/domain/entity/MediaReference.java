@@ -4,6 +4,11 @@ import java.util.Objects;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
+/**
+ * Indicates that the medium is used by an entity. The reference is also
+ * assigned a type that indicates whether the medium is embedded or only
+ * linked.
+ */
 @SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class MediaReference {
 
