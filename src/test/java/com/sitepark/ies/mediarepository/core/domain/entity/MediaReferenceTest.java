@@ -33,7 +33,8 @@ class MediaReferenceTest {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
 			.usedBy(123)
-			.type(MediaReferenceType.EMBEDDED);
+			.type(MediaReferenceType.EMBEDDED)
+			.build();
 		});
 	}
 
@@ -62,7 +63,8 @@ class MediaReferenceTest {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
 			.mediaId(123)
-			.type(MediaReferenceType.EMBEDDED);
+			.type(MediaReferenceType.EMBEDDED)
+			.build();
 		});
 	}
 
@@ -104,7 +106,30 @@ class MediaReferenceTest {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
 			.mediaId(123)
-			.usedBy(123);
+			.usedBy(123)
+			.build();
 		});
+	}
+
+	@Test
+	void testToBuilder() {
+
+		MediaReference ref = MediaReference.builder()
+				.mediaId(123)
+				.usedBy(123)
+				.type(MediaReferenceType.EMBEDDED)
+				.build();
+
+		MediaReference copy = ref.toBuilder()
+				.mediaId(345)
+				.build();
+
+		MediaReference expected = MediaReference.builder()
+				.mediaId(345)
+				.usedBy(123)
+				.type(MediaReferenceType.EMBEDDED)
+				.build();
+
+		assertEquals(expected, copy, "unexpected mediareference copy");
 	}
 }

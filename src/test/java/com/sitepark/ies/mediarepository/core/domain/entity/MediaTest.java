@@ -35,4 +35,15 @@ class MediaTest {
 			Media.builder().id(0);
 		}, "id 0 should't be allowed");
 	}
+
+	@Test
+	void testToBuilder() {
+
+		Media media = Media.builder().id(123).build();
+		Media copy = media.toBuilder().id(345).build();
+		Media expected = Media.builder().id(345).build();
+
+		assertEquals(expected, copy, "unexpected media copy");
+	}
+
 }
