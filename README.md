@@ -20,4 +20,4 @@ If RepositoryContent entry is deleted, this removes all references to used media
 
 ### RemoveMedia
 
-Löscht ein Medium
+Removes a medium
