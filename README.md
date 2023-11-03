@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/sitepark/ies-mediarepository-core/graph/badge.svg?token=QAlBzrsx6d)](https://codecov.io/gh/sitepark/ies-mediarepository-core)
+
 # Media-Repository
 
 Feature of the media repository
