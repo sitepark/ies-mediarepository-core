@@ -95,9 +95,7 @@ public class MediaReference {
 			return this;
 		}
 		public Builder type(MediaReferenceType type) {
-			if (type == null) {
-				throw new NullPointerException("type is null");
-			}
+			Objects.requireNonNull(type, "type is null");
 			this.type = type;
 			return this;
 		}
