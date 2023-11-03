@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/sitepark/ies-mediarepository-core/graph/badge.svg?token=QAlBzrsx6d)](https://codecov.io/gh/sitepark/ies-mediarepository-core)
+[![Known Vulnerabilities](https://snyk.io/test/github/sitepark/ies-mediarepository-core/badge.svg)](https://snyk.io/test/github/sitepark/ies-mediarepository-core)
 
 # Media-Repository
 
