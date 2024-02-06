@@ -1,6 +1,6 @@
 package com.sitepark.ies.mediarepository.core.usecase;
 
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -23,26 +23,26 @@ class RemoveByReferenceTest {
 
 		List<MediaReference> referencesByUserList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10L")
 						.type(MediaReferenceType.EMBEDDED)
 						.build(),
 				MediaReference.builder()
-						.mediaId(1231)
-						.usedBy(10L)
+						.mediaId("1231")
+						.usedBy("10L")
 						.type(MediaReferenceType.LINKED)
 						.build()
 		);
 
 		MediaRepository repository = mock(MediaRepository.class);
-		when(repository.getReferencesUsedBy(anyLong())).thenReturn(referencesByUserList);
-		when(repository.getReferencesByMedia(anyLong())).thenReturn(Collections.emptyList());
+		when(repository.getReferencesUsedBy(any())).thenReturn(referencesByUserList);
+		when(repository.getReferencesByMedia(any())).thenReturn(Collections.emptyList());
 
 		var removeByReference = new RemoveByReference(repository);
-		removeByReference.removeByReference(10L);
+		removeByReference.removeByReference("10");
 
-		verify(repository).removeReferencesUsedBy(10L);
-		verify(repository).remove(123);
+		verify(repository).removeReferencesUsedBy("10");
+		verify(repository).remove("123");
 	}
 
 	@Test
@@ -50,34 +50,34 @@ class RemoveByReferenceTest {
 
 		List<MediaReference> referencesByUserList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build(),
 				MediaReference.builder()
-						.mediaId(1231)
-						.usedBy(1231)
+						.mediaId("1231")
+						.usedBy("1231")
 						.type(MediaReferenceType.LINKED)
 						.build()
 		);
 
 		List<MediaReference> referencesByMediaList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build()
 		);
 
 		MediaRepository repository = mock(MediaRepository.class);
-		when(repository.getReferencesUsedBy(anyLong())).thenReturn(referencesByUserList);
-		when(repository.getReferencesByMedia(anyLong())).thenReturn(referencesByMediaList);
+		when(repository.getReferencesUsedBy(any())).thenReturn(referencesByUserList);
+		when(repository.getReferencesByMedia(any())).thenReturn(referencesByMediaList);
 
 		var removeByReference = new RemoveByReference(repository);
-		removeByReference.removeByReference(10L);
+		removeByReference.removeByReference("10");
 
-		verify(repository).removeReferencesUsedBy(10L);
-		verify(repository).remove(123);
+		verify(repository).removeReferencesUsedBy("10");
+		verify(repository).remove("123");
 	}
 
 	@Test
@@ -85,34 +85,34 @@ class RemoveByReferenceTest {
 
 		List<MediaReference> referencesByUserList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build(),
 				MediaReference.builder()
-						.mediaId(1231)
-						.usedBy(1231)
+						.mediaId("1231")
+						.usedBy("1231")
 						.type(MediaReferenceType.LINKED)
 						.build()
 		);
 
 		List<MediaReference> referencesByMediaList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(101L)
+						.mediaId("123")
+						.usedBy("101")
 						.type(MediaReferenceType.EMBEDDED)
 						.build()
 		);
 
 		MediaRepository repository = mock(MediaRepository.class);
-		when(repository.getReferencesUsedBy(anyLong())).thenReturn(referencesByUserList);
-		when(repository.getReferencesByMedia(anyLong())).thenReturn(referencesByMediaList);
+		when(repository.getReferencesUsedBy(any())).thenReturn(referencesByUserList);
+		when(repository.getReferencesByMedia(any())).thenReturn(referencesByMediaList);
 
 		var removeByReference = new RemoveByReference(repository);
-		removeByReference.removeByReference(10L);
+		removeByReference.removeByReference("10");
 
-		verify(repository).removeReferencesUsedBy(10L);
-		verify(repository, never()).remove(anyLong());
+		verify(repository).removeReferencesUsedBy("10");
+		verify(repository, never()).remove(any());
 	}
 
 	@Test
@@ -120,38 +120,38 @@ class RemoveByReferenceTest {
 
 		List<MediaReference> referencesByUserList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build(),
 				MediaReference.builder()
-						.mediaId(1231)
-						.usedBy(1231)
+						.mediaId("1231")
+						.usedBy("1231")
 						.type(MediaReferenceType.LINKED)
 						.build()
 		);
 
 		List<MediaReference> referencesByMediaList = Arrays.asList(
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build(),
 				MediaReference.builder()
-						.mediaId(123)
-						.usedBy(10L)
+						.mediaId("123")
+						.usedBy("10")
 						.type(MediaReferenceType.EMBEDDED)
 						.build()
 		);
 
 		MediaRepository repository = mock(MediaRepository.class);
-		when(repository.getReferencesUsedBy(anyLong())).thenReturn(referencesByUserList);
-		when(repository.getReferencesByMedia(anyLong())).thenReturn(referencesByMediaList);
+		when(repository.getReferencesUsedBy(any())).thenReturn(referencesByUserList);
+		when(repository.getReferencesByMedia(any())).thenReturn(referencesByMediaList);
 
 		var removeByReference = new RemoveByReference(repository);
-		removeByReference.removeByReference(10L);
+		removeByReference.removeByReference("10");
 
-		verify(repository).removeReferencesUsedBy(10L);
-		verify(repository, never()).remove(anyLong());
+		verify(repository).removeReferencesUsedBy("10");
+		verify(repository, never()).remove(any());
 	}
 }

@@ -23,7 +23,7 @@ public final class RemoveByReference {
 		this.repository = repository;
 	}
 
-	public void removeByReference(long usedBy) {
+	public void removeByReference(String usedBy) {
 
 		List<MediaReference> embeddedReferenceList =
 				this.repository.getReferencesUsedBy(usedBy).stream()
@@ -32,7 +32,7 @@ public final class RemoveByReference {
 
 		this.repository.removeReferencesUsedBy(usedBy);
 
-		List<Long> mediaList = embeddedReferenceList.stream()
+		List<String> mediaList = embeddedReferenceList.stream()
 				.map(ref -> ref.getMediaId())
 				.distinct()
 				.collect(Collectors.toList());
@@ -41,8 +41,8 @@ public final class RemoveByReference {
 	}
 
 	@SuppressWarnings("PMD.AvoidLiteralsInIfCondition")
-	private void removeMediaOnlyAssociatedWithDeletedEmbeddedReference(long usedBy, List<Long> mediaList) {
-		for (long mediaId : mediaList) {
+	private void removeMediaOnlyAssociatedWithDeletedEmbeddedReference(String usedBy, List<String> mediaList) {
+		for (String mediaId : mediaList) {
 			List<MediaReference> mediaReferenceList = this.repository.getReferencesByMedia(mediaId);
 
 			/*
@@ -64,7 +64,7 @@ public final class RemoveByReference {
 				this.repository.remove(mediaId);
 			} else if (mediaReferenceList.size() == 1) {
 				MediaReference mediaReference = mediaReferenceList.get(0);
-				if (mediaReference.getUsedBy() == usedBy) {
+				if (mediaReference.getUsedBy().equals(usedBy)) {
 					this.repository.remove(mediaId);
 				}
 			}

@@ -17,8 +17,8 @@ class AddReferenceTest {
 		MediaRepository repository = mock(MediaRepository.class);
 
 		MediaReference ref = MediaReference.builder()
-				.mediaId(10)
-				.usedBy(12)
+				.mediaId("10")
+				.usedBy("12")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
 

@@ -20,7 +20,7 @@ public final class RemoveMedia {
 		this.accessControl = accessControl;
 	}
 
-	public void removeMedia(long id) {
+	public void removeMedia(String id) {
 
 		if (!this.accessControl.isMediaRemovable(id)) {
 			throw new AccessDeniedException("Not allowed to remove media " + id);

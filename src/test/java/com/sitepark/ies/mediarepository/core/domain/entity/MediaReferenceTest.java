@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import nl.jqno.equalsverifier.EqualsVerifier;
 
+@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 class MediaReferenceTest {
 
 	@Test
@@ -20,11 +21,11 @@ class MediaReferenceTest {
 	@Test
 	void testSetMediaId() {
 		MediaReference ref = MediaReference.builder()
-				.mediaId(123)
-				.usedBy(123)
+				.mediaId("123")
+				.usedBy("123")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
-		assertEquals(123, ref.getMediaId(), "unexpected mediaId");
+		assertEquals("123", ref.getMediaId(), "unexpected mediaId");
 	}
 
 	@Test
@@ -32,7 +33,7 @@ class MediaReferenceTest {
 	void testMissingMediaId() {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
-			.usedBy(123)
+			.usedBy("123")
 			.type(MediaReferenceType.EMBEDDED)
 			.build();
 		});
@@ -42,19 +43,19 @@ class MediaReferenceTest {
 	@Test
 	@SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
 	void testSetInvalidMediaId() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			MediaReference.builder().mediaId(0);
-		}, "mediaId 0 should't be allowed");
+		assertThrows(NullPointerException.class, () -> {
+			MediaReference.builder().mediaId(null);
+		}, "mediaId should't be null");
 	}
 
 	@Test
 	void testSetUsedBy() {
 		MediaReference ref = MediaReference.builder()
-				.mediaId(123)
-				.usedBy(123)
+				.mediaId("123")
+				.usedBy("123")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
-		assertEquals(123, ref.getUsedBy(), "unexpected usedBy");
+		assertEquals("123", ref.getUsedBy(), "unexpected usedBy");
 	}
 
 	@Test
@@ -62,7 +63,7 @@ class MediaReferenceTest {
 	void testMissingUsedBy() {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
-			.mediaId(123)
+			.mediaId("123")
 			.type(MediaReferenceType.EMBEDDED)
 			.build();
 		});
@@ -71,16 +72,16 @@ class MediaReferenceTest {
 	@Test
 	@SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
 	void testSetInvalidUsedBy() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			MediaReference.builder().usedBy(0);
-		}, "usedBy 0 should't be allowed");
+		assertThrows(NullPointerException.class, () -> {
+			MediaReference.builder().usedBy(null);
+		}, "usedBy should't be null");
 	}
 
 	@Test
 	void testSetType() {
 		MediaReference ref = MediaReference.builder()
-				.mediaId(123)
-				.usedBy(123)
+				.mediaId("123")
+				.usedBy("123")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
 		assertEquals(
@@ -105,8 +106,8 @@ class MediaReferenceTest {
 	void testMissingType() {
 		assertThrows(IllegalStateException.class, () -> {
 			MediaReference.builder()
-			.mediaId(123)
-			.usedBy(123)
+			.mediaId("123")
+			.usedBy("123")
 			.build();
 		});
 	}
@@ -115,18 +116,18 @@ class MediaReferenceTest {
 	void testToBuilder() {
 
 		MediaReference ref = MediaReference.builder()
-				.mediaId(123)
-				.usedBy(123)
+				.mediaId("123")
+				.usedBy("123")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
 
 		MediaReference copy = ref.toBuilder()
-				.mediaId(345)
+				.mediaId("345")
 				.build();
 
 		MediaReference expected = MediaReference.builder()
-				.mediaId(345)
-				.usedBy(123)
+				.mediaId("345")
+				.usedBy("123")
 				.type(MediaReferenceType.EMBEDDED)
 				.build();
 

@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import nl.jqno.equalsverifier.EqualsVerifier;
 
+@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 class MediaTest {
 
 	@Test
@@ -19,8 +21,8 @@ class MediaTest {
 
 	@Test
 	void testSetId() {
-		Media media = Media.builder().id(123).build();
-		assertEquals(123, media.getId().get(), "unexpected id");
+		Media media = Media.builder().id("123").build();
+		assertEquals("123", media.getId().get(), "unexpected id");
 	}
 
 	@Test
@@ -31,17 +33,17 @@ class MediaTest {
 
 	@Test
 	void testSetInvalidId() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			Media.builder().id(0);
-		}, "id 0 should't be allowed");
+		assertThrows(NullPointerException.class, () -> {
+			Media.builder().id(null);
+		}, "id should't be null");
 	}
 
 	@Test
 	void testToBuilder() {
 
-		Media media = Media.builder().id(123).build();
-		Media copy = media.toBuilder().id(345).build();
-		Media expected = Media.builder().id(345).build();
+		Media media = Media.builder().id("123").build();
+		Media copy = media.toBuilder().id("345").build();
+		Media expected = Media.builder().id("345").build();
 
 		assertEquals(expected, copy, "unexpected media copy");
 	}

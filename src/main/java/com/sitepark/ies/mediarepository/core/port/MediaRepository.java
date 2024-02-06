@@ -10,8 +10,8 @@ import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
  */
 public interface MediaRepository {
 	void addReference(MediaReference reference);
-	void remove(long mediaId);
-	void removeReferencesUsedBy(long usedBy);
-	List<MediaReference> getReferencesUsedBy(long usedBy);
-	List<MediaReference> getReferencesByMedia(long mediaId);
+	void remove(String mediaId);
+	void removeReferencesUsedBy(String usedBy);
+	List<MediaReference> getReferencesUsedBy(String usedBy);
+	List<MediaReference> getReferencesByMedia(String mediaId);
 }

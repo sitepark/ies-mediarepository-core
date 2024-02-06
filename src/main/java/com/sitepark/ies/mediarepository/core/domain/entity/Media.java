@@ -11,14 +11,14 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class Media {
 
-	private final long id;
+	private final String id;
 
 	protected Media(Builder builder) {
 		this.id = builder.id;
 	}
 
-	public Optional<Long> getId() {
-		if (this.id == 0) {
+	public Optional<String> getId() {
+		if (this.id == null) {
 			return Optional.empty();
 		} else {
 			return Optional.of(this.id);
@@ -53,7 +53,7 @@ public class Media {
 
 	public static class Builder {
 
-		private long id;
+		private String id;
 
 		protected Builder() {}
 
@@ -61,9 +61,9 @@ public class Media {
 			this.id = media.id;
 		}
 
-		public Builder id(long id) {
-			if (id <= 0) {
-				throw new IllegalArgumentException("id should be greater than 0");
+		public Builder id(String id) {
+			if (id == null) {
+				throw new NullPointerException("id is null");
 			}
 			this.id = id;
 			return this;
