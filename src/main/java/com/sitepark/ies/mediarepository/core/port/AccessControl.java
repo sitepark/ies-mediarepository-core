@@ -7,5 +7,5 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 @SuppressFBWarnings
 public interface AccessControl {
-	boolean isMediaRemovable(String id);
+  boolean isMediaRemovable(String id);
 }

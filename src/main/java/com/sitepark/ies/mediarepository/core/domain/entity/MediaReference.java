@@ -1,8 +1,7 @@
 package com.sitepark.ies.mediarepository.core.domain.entity;
 
-import java.util.Objects;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import java.util.Objects;
 
 /**
  * Indicates that the medium is used by an entity. The reference is also
@@ -12,102 +11,100 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class MediaReference {
 
-	private final String mediaId;
-	final String usedBy;
-	private final MediaReferenceType type;
+  private final String mediaId;
+  final String usedBy;
+  private final MediaReferenceType type;
 
-	protected MediaReference(Builder builder) {
-		this.mediaId = builder.mediaId;
-		this.usedBy = builder.usedBy;
-		this.type = builder.type;
-	}
+  protected MediaReference(Builder builder) {
+    this.mediaId = builder.mediaId;
+    this.usedBy = builder.usedBy;
+    this.type = builder.type;
+  }
 
-	public String getMediaId() {
-		return this.mediaId;
-	}
+  public String getMediaId() {
+    return this.mediaId;
+  }
 
-	public String getUsedBy() {
-		return this.usedBy;
-	}
+  public String getUsedBy() {
+    return this.usedBy;
+  }
 
-	public MediaReferenceType getType() {
-		return this.type;
-	}
+  public MediaReferenceType getType() {
+    return this.type;
+  }
 
-	@Override
-	public final int hashCode() {
-		return Objects.hash(
-				this.mediaId,
-				this.usedBy,
-				this.type);
-	}
+  @Override
+  public final int hashCode() {
+    return Objects.hash(this.mediaId, this.usedBy, this.type);
+  }
 
-	@Override
-	public final boolean equals(Object o) {
+  @Override
+  public final boolean equals(Object o) {
 
-		if (!(o instanceof MediaReference)) {
-			return false;
-		}
+    if (!(o instanceof MediaReference)) {
+      return false;
+    }
 
-		MediaReference ref = (MediaReference)o;
+    MediaReference ref = (MediaReference) o;
 
-		return
-				Objects.equals(this.mediaId, ref.mediaId) &&
-				Objects.equals(this.usedBy, ref.usedBy) &&
-				Objects.equals(this.type, ref.type);
-	}
+    return Objects.equals(this.mediaId, ref.mediaId)
+        && Objects.equals(this.usedBy, ref.usedBy)
+        && Objects.equals(this.type, ref.type);
+  }
 
-	public static Builder builder() {
-		return new Builder();
-	}
+  public static Builder builder() {
+    return new Builder();
+  }
 
-	public Builder toBuilder() {
-		return new Builder(this);
-	}
+  public Builder toBuilder() {
+    return new Builder(this);
+  }
 
-	public static class Builder {
+  public static class Builder {
 
-		private String mediaId;
-		private String usedBy;
-		private MediaReferenceType type;
+    private String mediaId;
+    private String usedBy;
+    private MediaReferenceType type;
 
-		protected Builder() {}
+    protected Builder() {}
 
-		protected Builder(MediaReference media) {
-			this.mediaId = media.mediaId;
-			this.usedBy = media.usedBy;
-			this.type = media.type;
-		}
+    protected Builder(MediaReference media) {
+      this.mediaId = media.mediaId;
+      this.usedBy = media.usedBy;
+      this.type = media.type;
+    }
 
-		public Builder mediaId(String mediaId) {
-			Objects.requireNonNull(mediaId, "mediaId is null");
-			this.mediaId = mediaId;
-			return this;
-		}
+    public Builder mediaId(String mediaId) {
+      Objects.requireNonNull(mediaId, "mediaId is null");
+      this.mediaId = mediaId;
+      return this;
+    }
 
-		public Builder usedBy(String usedBy) {
-			Objects.requireNonNull(usedBy, "usedBy is null");
-			this.usedBy = usedBy;
-			return this;
-		}
-		public Builder type(MediaReferenceType type) {
-			Objects.requireNonNull(type, "type is null");
-			this.type = type;
-			return this;
-		}
-		public MediaReference build() {
+    public Builder usedBy(String usedBy) {
+      Objects.requireNonNull(usedBy, "usedBy is null");
+      this.usedBy = usedBy;
+      return this;
+    }
 
-			if (this.mediaId == null) {
-				throw new IllegalStateException("mediaId not set");
-			}
-			if (this.usedBy == null) {
-				throw new IllegalStateException("usedBy not set");
-			}
-			if (this.type == null) {
-				throw new IllegalStateException("type not set");
-			}
+    public Builder type(MediaReferenceType type) {
+      Objects.requireNonNull(type, "type is null");
+      this.type = type;
+      return this;
+    }
 
-			return new MediaReference(this);
-		}
-	}
+    public MediaReference build() {
+
+      if (this.mediaId == null) {
+        throw new IllegalStateException("mediaId not set");
+      }
+      if (this.usedBy == null) {
+        throw new IllegalStateException("usedBy not set");
+      }
+      if (this.type == null) {
+        throw new IllegalStateException("type not set");
+      }
+
+      return new MediaReference(this);
+    }
+  }
 }
