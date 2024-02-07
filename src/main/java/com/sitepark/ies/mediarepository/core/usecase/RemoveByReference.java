@@ -3,11 +3,11 @@ package com.sitepark.ies.mediarepository.core.usecase;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
-
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReferenceType;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
+
+import jakarta.inject.Inject;
 
 /**
  * Removes a medium via its reference. If this is the only or last reference

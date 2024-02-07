@@ -62,9 +62,7 @@ public class Media {
 		}
 
 		public Builder id(String id) {
-			if (id == null) {
-				throw new NullPointerException("id is null");
-			}
+			Objects.requireNonNull(id, "id is null");
 			this.id = id;
 			return this;
 		}

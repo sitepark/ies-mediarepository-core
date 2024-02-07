@@ -16,6 +16,7 @@ import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReferenceType;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
 
+@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 class RemoveByReferenceTest {
 
 	@Test

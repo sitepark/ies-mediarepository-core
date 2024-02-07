@@ -1,9 +1,10 @@
 package com.sitepark.ies.mediarepository.core.usecase;
 
-import javax.inject.Inject;
 
 import com.sitepark.ies.mediarepository.core.domain.entity.MediaReference;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
+
+import jakarta.inject.Inject;
 
 /**
  * Adds a reference to the medium.
