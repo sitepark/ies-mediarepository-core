@@ -19,9 +19,8 @@ public class Media {
   public Optional<String> getId() {
     if (this.id == null) {
       return Optional.empty();
-    } else {
-      return Optional.of(this.id);
     }
+    return Optional.of(this.id);
   }
 
   @Override
@@ -32,11 +31,9 @@ public class Media {
   @Override
   public final boolean equals(Object o) {
 
-    if (!(o instanceof Media)) {
+    if (!(o instanceof Media media)) {
       return false;
     }
-
-    Media media = (Media) o;
 
     return Objects.equals(this.id, media.id);
   }
