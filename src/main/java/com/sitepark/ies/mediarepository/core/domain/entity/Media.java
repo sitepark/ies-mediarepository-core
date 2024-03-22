@@ -1,9 +1,8 @@
 package com.sitepark.ies.mediarepository.core.domain.entity;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Objects;
 import java.util.Optional;
-
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Represents a medium within the repository
@@ -11,64 +10,60 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class Media {
 
-	private final String id;
+  private final String id;
 
-	protected Media(Builder builder) {
-		this.id = builder.id;
-	}
+  protected Media(Builder builder) {
+    this.id = builder.id;
+  }
 
-	public Optional<String> getId() {
-		if (this.id == null) {
-			return Optional.empty();
-		} else {
-			return Optional.of(this.id);
-		}
-	}
+  public Optional<String> getId() {
+    if (this.id == null) {
+      return Optional.empty();
+    }
+    return Optional.of(this.id);
+  }
 
-	@Override
-	public final int hashCode() {
-		return Objects.hash(
-				this.id);
-	}
+  @Override
+  public final int hashCode() {
+    return Objects.hash(this.id);
+  }
 
-	@Override
-	public final boolean equals(Object o) {
+  @Override
+  public final boolean equals(Object o) {
 
-		if (!(o instanceof Media)) {
-			return false;
-		}
+    if (!(o instanceof Media media)) {
+      return false;
+    }
 
-		Media media = (Media)o;
+    return Objects.equals(this.id, media.id);
+  }
 
-		return Objects.equals(this.id, media.id);
-	}
+  public static Builder builder() {
+    return new Builder();
+  }
 
-	public static Builder builder() {
-		return new Builder();
-	}
+  public Builder toBuilder() {
+    return new Builder(this);
+  }
 
-	public Builder toBuilder() {
-		return new Builder(this);
-	}
+  public static class Builder {
 
-	public static class Builder {
+    private String id;
 
-		private String id;
+    protected Builder() {}
 
-		protected Builder() {}
+    protected Builder(Media media) {
+      this.id = media.id;
+    }
 
-		protected Builder(Media media) {
-			this.id = media.id;
-		}
+    public Builder id(String id) {
+      Objects.requireNonNull(id, "id is null");
+      this.id = id;
+      return this;
+    }
 
-		public Builder id(String id) {
-			Objects.requireNonNull(id, "id is null");
-			this.id = id;
-			return this;
-		}
-
-		public Media build() {
-			return new Media(this);
-		}
-	}
+    public Media build() {
+      return new Media(this);
+    }
+  }
 }
