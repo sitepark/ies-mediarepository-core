@@ -4,7 +4,7 @@
 
 	<groupId>com.sitepark.ies</groupId>
 	<artifactId>ies-mediarepository-core</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<name>IES Media Repository Core</name>
 	<description>IES mediarepository domain und use-case implementations</description>
 	<url>https://github.com/sitepark/ies-mediarepository-core</url>
@@ -39,7 +39,7 @@
 	<scm>
 		<connection>scm:git:git@github.com:sitepark/ies-mediarepository-core.git</connection>
 		<developerConnection>scm:git:git@github.com:sitepark/ies-mediarepository-core.git</developerConnection>
-		<tag>1.0.0</tag>
+		<tag>HEAD</tag>
 		<url>https://github.com/sitepark/ies-mediarepository-core</url>
 	</scm>
 
@@ -210,7 +210,7 @@
 						</goals>
 						<configuration>
 							<rules>
-								<banDuplicatePomDependencyVersions />
+								<banDuplicatePomDependencyVersions></banDuplicatePomDependencyVersions>
 								<requireMavenVersion>
 									<version>3.8</version>
 								</requireMavenVersion>
@@ -232,7 +232,7 @@
 									<failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
 									<message>No Snapshots Allowed!</message>
 								</requireReleaseDeps>
-								<requireReleaseDepsInPlugins implementation="org.apache.maven.enforcer.rule.requireReleaseDepsInPlugins" />
+								<requireReleaseDepsInPlugins implementation="org.apache.maven.enforcer.rule.requireReleaseDepsInPlugins"></requireReleaseDepsInPlugins>
 							</rules>
 							<fail>true</fail>
 						</configuration>
@@ -296,7 +296,7 @@
 							<reflowLongStrings>true</reflowLongStrings>
 							<formatJavadoc>false</formatJavadoc>
 						</googleJavaFormat>
-						<formatAnnotations />
+						<formatAnnotations></formatAnnotations>
 					</java>
 					<pom>
 						<!-- These are the defaults, you can override if you want -->
