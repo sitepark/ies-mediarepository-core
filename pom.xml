@@ -7,6 +7,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>IES Media Repository Core</name>
 	<description>IES mediarepository domain und use-case implementations</description>
+	<url>https://github.com/sitepark/ies-mediarepository-core</url>
 
 	<organization>
 		<name>Sitepark</name>
@@ -126,7 +127,6 @@
 	</dependencies>
 	<build>
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.13.0</version>
@@ -144,11 +144,14 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>3.3.0</version>
+				<configuration>
+					<doclint>all,-missing</doclint>
+				</configuration>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar-no-fork</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -327,14 +330,13 @@
 					<maxRank>20</maxRank>
 					<excludeFilterFile>spotbug-exclude-filter.xml</excludeFilterFile>
 				</configuration>
-
 				<!-- https://spotbugs.readthedocs.io/en/latest/maven.html -->
 				<dependencies>
 					<!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
 					<dependency>
 						<groupId>com.github.spotbugs</groupId>
 						<artifactId>spotbugs</artifactId>
-						<version>${spotbugs.version}</version>
+						<version>4.8.3</version>
 					</dependency>
 				</dependencies>
 				<executions>
@@ -359,7 +361,6 @@
 					<failurePriority>5</failurePriority>
 					<printFailingErrors>true</printFailingErrors>
 					<linkXRef>false</linkXRef>
-					<!-- otherwise generates a warning -->
 				</configuration>
 				<executions>
 					<execution>
@@ -373,4 +374,24 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>nexus-staging-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.13</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
