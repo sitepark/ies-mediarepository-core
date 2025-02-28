@@ -30,12 +30,7 @@ public class Media {
 
   @Override
   public final boolean equals(Object o) {
-
-    if (!(o instanceof Media media)) {
-      return false;
-    }
-
-    return Objects.equals(this.id, media.id);
+    return (o instanceof Media media) && Objects.equals(this.id, media.id);
   }
 
   public static Builder builder() {

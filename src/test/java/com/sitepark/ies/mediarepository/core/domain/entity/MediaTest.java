@@ -20,7 +20,7 @@ class MediaTest {
   @Test
   void testSetId() {
     Media media = Media.builder().id("123").build();
-    assertEquals("123", media.getId().get(), "unexpected id");
+    assertEquals("123", media.getId().orElse(""), "unexpected id");
   }
 
   @Test
@@ -32,11 +32,7 @@ class MediaTest {
   @Test
   void testSetInvalidId() {
     assertThrows(
-        NullPointerException.class,
-        () -> {
-          Media.builder().id(null);
-        },
-        "id should't be null");
+        NullPointerException.class, () -> Media.builder().id(null), "id should not be null");
   }
 
   @Test

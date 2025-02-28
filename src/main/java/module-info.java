@@ -5,6 +5,5 @@ module com.sitepark.ies.mediarepository.core {
   exports com.sitepark.ies.mediarepository.core.usecase;
 
   requires jakarta.inject;
-  requires org.eclipse.jdt.annotation;
   requires com.github.spotbugs.annotations;
 }

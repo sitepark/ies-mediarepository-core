@@ -12,7 +12,7 @@ public final class AddReference {
   private final MediaRepository repository;
 
   @Inject
-  protected AddReference(MediaRepository repository) {
+  AddReference(MediaRepository repository) {
     this.repository = repository;
   }
 
