@@ -1,6 +1,5 @@
 package com.sitepark.ies.mediarepository.core.domain.entity;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Objects;
 
 /**
@@ -8,7 +7,6 @@ import java.util.Objects;
  * assigned a type that indicates whether the medium is embedded or only
  * linked.
  */
-@SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class MediaReference {
 
   private final String mediaId;
