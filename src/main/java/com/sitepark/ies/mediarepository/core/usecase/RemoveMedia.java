@@ -14,7 +14,7 @@ public final class RemoveMedia {
   private final AccessControl accessControl;
 
   @Inject
-  protected RemoveMedia(MediaRepository repository, AccessControl accessControl) {
+  RemoveMedia(MediaRepository repository, AccessControl accessControl) {
     this.repository = repository;
     this.accessControl = accessControl;
   }

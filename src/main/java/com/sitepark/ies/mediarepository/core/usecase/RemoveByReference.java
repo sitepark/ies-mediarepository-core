@@ -17,7 +17,7 @@ public final class RemoveByReference {
   private final MediaRepository repository;
 
   @Inject
-  protected RemoveByReference(MediaRepository repository) {
+  RemoveByReference(MediaRepository repository) {
     this.repository = repository;
   }
 
@@ -26,13 +26,13 @@ public final class RemoveByReference {
     List<MediaReference> embeddedReferenceList =
         this.repository.getReferencesUsedBy(usedBy).stream()
             .filter(ref -> ref.getType() == MediaReferenceType.EMBEDDED)
-            .collect(Collectors.toList());
+            .toList();
 
     this.repository.removeReferencesUsedBy(usedBy);
 
     List<String> mediaList =
         embeddedReferenceList.stream()
-            .map(ref -> ref.getMediaId())
+            .map(MediaReference::getMediaId)
             .distinct()
             .collect(Collectors.toList());
 
@@ -49,8 +49,8 @@ public final class RemoveByReference {
        * The media repository does not have its own referrer table yet and this.repository.getReferencesByMedia()
        * therefore still uses the LinkContent table.
        *
-       * this.repository.removeReferencesUsedBy(usedBy); also has no effect yet. Therefore
-       * mediaReferenceList still contains the usedBy id. Therefore it is first queried,
+       * this.repository.removeReferencesUsedBy(usedBy); also has no effect yet. Therefore,
+       * mediaReferenceList still contains the usedBy id. Therefore, it is first queried,
        * whether the list size = 1 and contains usedBy.
        *
        * With a real reference table for the mediaRepository then applies:
@@ -63,7 +63,7 @@ public final class RemoveByReference {
       if (mediaReferenceList.isEmpty()) {
         this.repository.remove(mediaId);
       } else if (mediaReferenceList.size() == 1) {
-        MediaReference mediaReference = mediaReferenceList.get(0);
+        MediaReference mediaReference = mediaReferenceList.getFirst();
         if (mediaReference.getUsedBy().equals(usedBy)) {
           this.repository.remove(mediaId);
         }

@@ -41,13 +41,10 @@ public class MediaReference {
   @Override
   public final boolean equals(Object o) {
 
-    if (!(o instanceof MediaReference ref)) {
-      return false;
-    }
-
-    return Objects.equals(this.mediaId, ref.mediaId)
-        && Objects.equals(this.usedBy, ref.usedBy)
-        && Objects.equals(this.type, ref.type);
+    return (o instanceof MediaReference that)
+        && Objects.equals(this.mediaId, that.mediaId)
+        && Objects.equals(this.usedBy, that.usedBy)
+        && Objects.equals(this.type, that.type);
   }
 
   public static Builder builder() {

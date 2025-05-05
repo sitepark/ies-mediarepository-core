@@ -14,9 +14,9 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 class RemoveByReferenceTest {
 
+  @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
   @Test
   void testRemoveReferencesUsedByIfReferenceIsNotOtherwiseUsed() {
 
@@ -44,6 +44,7 @@ class RemoveByReferenceTest {
     verify(repository).remove("123");
   }
 
+  @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
   @Test
   void testRemoveReferencesUsedByIfReferenceUsedOnceByOwn() {
 
@@ -61,7 +62,7 @@ class RemoveByReferenceTest {
                 .build());
 
     List<MediaReference> referencesByMediaList =
-        Arrays.asList(
+        Collections.singletonList(
             MediaReference.builder()
                 .mediaId("123")
                 .usedBy("10")
@@ -79,6 +80,7 @@ class RemoveByReferenceTest {
     verify(repository).remove("123");
   }
 
+  @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
   @Test
   void testRemoveReferencesUsedByIfReferenceUsedOnceByOther() {
 
@@ -96,7 +98,7 @@ class RemoveByReferenceTest {
                 .build());
 
     List<MediaReference> referencesByMediaList =
-        Arrays.asList(
+        Collections.singletonList(
             MediaReference.builder()
                 .mediaId("123")
                 .usedBy("101")
@@ -114,6 +116,7 @@ class RemoveByReferenceTest {
     verify(repository, never()).remove(any());
   }
 
+  @SuppressWarnings("PMD.UnitTestContainsTooManyAsserts")
   @Test
   void testRemoveReferencesUsedByIfReferenceUsedSeveralTimes() {
 
