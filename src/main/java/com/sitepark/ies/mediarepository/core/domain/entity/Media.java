@@ -1,13 +1,11 @@
 package com.sitepark.ies.mediarepository.core.domain.entity;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
  * Represents a medium within the repository
  */
-@SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public class Media {
 
   private final String id;

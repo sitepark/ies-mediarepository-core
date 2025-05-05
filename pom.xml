@@ -44,7 +44,7 @@
 	</scm>
 
 	<properties>
-		<junit.version>5.10.2</junit.version>
+		<junit.version>5.12.2</junit.version>
 		<spotbugs.version>4.8.3</spotbugs.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>21</maven.compiler.release>
@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>com.github.spotbugs</groupId>
 			<artifactId>spotbugs-annotations</artifactId>
-			<version>4.9.1</version>
+			<version>4.9.3</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -99,19 +99,19 @@
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-library</artifactId>
-			<version>2.2</version>
+			<version>3.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>5.15.2</version>
+			<version>5.17.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>nl.jqno.equalsverifier</groupId>
 			<artifactId>equalsverifier</artifactId>
-			<version>3.19.1</version>
+			<version>3.19.4</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -125,7 +125,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.13.0</version>
+				<version>3.14.0</version>
 				<configuration>
 					<compilerArgs>
 						<arg>-proc:none</arg>
@@ -134,12 +134,12 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.4.1</version>
+				<version>3.4.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.2.5</version>
+				<version>3.5.3</version>
 				<configuration>
 					<consoleOutputReporter>
 						<disable>true</disable>
@@ -160,7 +160,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.3.0</version>
+				<version>3.3.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -173,7 +173,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.6.3</version>
+				<version>3.11.2</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -199,7 +199,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.1.1</version>
 				<configuration>
 					<scmCommentPrefix>ci(release):</scmCommentPrefix>
 					<tagNameFormat>@{project.version}</tagNameFormat>
@@ -256,7 +256,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.12</version>
+				<version>0.8.13</version>
 				<executions>
 					<execution>
 						<goals>
@@ -295,7 +295,7 @@
 			<plugin>
 				<groupId>com.diffplug.spotless</groupId>
 				<artifactId>spotless-maven-plugin</artifactId>
-				<version>2.43.0</version>
+				<version>2.44.4</version>
 				<configuration>
 					<!-- define a language-specific format -->
 					<java>
@@ -337,7 +337,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.9.1.0</version>
+				<version>4.9.3.0</version>
 				<configuration>
 					<effort>Max</effort>
 					<threshold>Low</threshold>
@@ -351,7 +351,7 @@
 					<dependency>
 						<groupId>com.github.spotbugs</groupId>
 						<artifactId>spotbugs</artifactId>
-						<version>4.9.1</version>
+						<version>4.9.3</version>
 					</dependency>
 				</dependencies>
 				<executions>
@@ -397,7 +397,7 @@
 					<plugin>
 						<groupId>org.sonatype.central</groupId>
 						<artifactId>central-publishing-maven-plugin</artifactId>
-						<version>0.5.0</version>
+						<version>0.7.0</version>
 						<extensions>true</extensions>
 						<configuration>
 							<publishingServerId>central</publishingServerId>
