@@ -22,11 +22,7 @@ class RemoveMediaTest {
     when(accessControl.isMediaRemovable(any())).thenReturn(false);
 
     var removeMedia = new RemoveMedia(null, accessControl);
-    assertThrows(
-        AccessDeniedException.class,
-        () -> {
-          removeMedia.removeMedia("10");
-        });
+    assertThrows(AccessDeniedException.class, () -> removeMedia.removeMedia("10"));
   }
 
   @SuppressWarnings("PMD")

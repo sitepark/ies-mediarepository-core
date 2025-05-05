@@ -7,7 +7,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("PMD.AvoidDuplicateLiterals")
 @SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 class MediaReferenceTest {
 
@@ -33,9 +32,7 @@ class MediaReferenceTest {
   void testMissingMediaId() {
     assertThrows(
         IllegalStateException.class,
-        () -> {
-          MediaReference.builder().usedBy("123").type(MediaReferenceType.EMBEDDED).build();
-        });
+        () -> MediaReference.builder().usedBy("123").type(MediaReferenceType.EMBEDDED).build());
   }
 
   @Test
@@ -43,10 +40,8 @@ class MediaReferenceTest {
   void testSetInvalidMediaId() {
     assertThrows(
         NullPointerException.class,
-        () -> {
-          MediaReference.builder().mediaId(null);
-        },
-        "mediaId should't be null");
+        () -> MediaReference.builder().mediaId(null),
+        "mediaId should not be null");
   }
 
   @Test
@@ -65,9 +60,7 @@ class MediaReferenceTest {
   void testMissingUsedBy() {
     assertThrows(
         IllegalStateException.class,
-        () -> {
-          MediaReference.builder().mediaId("123").type(MediaReferenceType.EMBEDDED).build();
-        });
+        () -> MediaReference.builder().mediaId("123").type(MediaReferenceType.EMBEDDED).build());
   }
 
   @Test
@@ -75,10 +68,8 @@ class MediaReferenceTest {
   void testSetInvalidUsedBy() {
     assertThrows(
         NullPointerException.class,
-        () -> {
-          MediaReference.builder().usedBy(null);
-        },
-        "usedBy should't be null");
+        () -> MediaReference.builder().usedBy(null),
+        "usedBy should not be null");
   }
 
   @Test
@@ -97,10 +88,8 @@ class MediaReferenceTest {
   void testSetNullType() {
     assertThrows(
         NullPointerException.class,
-        () -> {
-          MediaReference.builder().type(null);
-        },
-        "type null should't be allowed");
+        () -> MediaReference.builder().type(null),
+        "type null should not be allowed");
   }
 
   @Test
@@ -108,9 +97,7 @@ class MediaReferenceTest {
   void testMissingType() {
     assertThrows(
         IllegalStateException.class,
-        () -> {
-          MediaReference.builder().mediaId("123").usedBy("123").build();
-        });
+        () -> MediaReference.builder().mediaId("123").usedBy("123").build());
   }
 
   @Test
@@ -132,6 +119,6 @@ class MediaReferenceTest {
             .type(MediaReferenceType.EMBEDDED)
             .build();
 
-    assertEquals(expected, copy, "unexpected mediareference copy");
+    assertEquals(expected, copy, "unexpected media reference copy");
   }
 }

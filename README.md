@@ -19,7 +19,7 @@ If a medium is used by a RepositoryContent entry, this is used to announce the r
 
 ### RemoveByReference
 
-If RepositoryContent entry is deleted, this removes all references to used media. All media that are without reference afterwards are deleted.
+If RepositoryContent entry is deleted, this removes all references to used media. All media that are without reference afterward are deleted.
 
 ### RemoveMedia
 
