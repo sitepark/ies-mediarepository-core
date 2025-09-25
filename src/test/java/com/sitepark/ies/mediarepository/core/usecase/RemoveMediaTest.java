@@ -6,9 +6,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.sitepark.ies.mediarepository.core.domain.exception.AccessDeniedException;
 import com.sitepark.ies.mediarepository.core.port.AccessControl;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
+import com.sitepark.ies.sharedkernel.security.AccessDeniedException;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Test;
 

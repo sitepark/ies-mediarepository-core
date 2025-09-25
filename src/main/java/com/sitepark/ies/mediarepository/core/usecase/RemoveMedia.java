@@ -1,13 +1,11 @@
 package com.sitepark.ies.mediarepository.core.usecase;
 
-import com.sitepark.ies.mediarepository.core.domain.exception.AccessDeniedException;
 import com.sitepark.ies.mediarepository.core.port.AccessControl;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
+import com.sitepark.ies.sharedkernel.security.AccessDeniedException;
 import jakarta.inject.Inject;
 
-/**
- * Removes a medium
- */
+/** Removes a medium */
 public final class RemoveMedia {
 
   private final MediaRepository repository;
