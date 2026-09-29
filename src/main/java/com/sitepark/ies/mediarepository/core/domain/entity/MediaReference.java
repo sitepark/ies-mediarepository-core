@@ -53,6 +53,8 @@ public class MediaReference {
     return new Builder(this);
   }
 
+  // fields are set via fluent setters and validated in build()
+  @SuppressWarnings("NullAway.Init")
   public static class Builder {
 
     private String mediaId;

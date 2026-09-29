@@ -2,13 +2,14 @@ package com.sitepark.ies.mediarepository.core.domain.entity;
 
 import java.util.Objects;
 import java.util.Optional;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Represents a medium within the repository
  */
 public class Media {
 
-  private final String id;
+  private final @Nullable String id;
 
   protected Media(Builder builder) {
     this.id = builder.id;
@@ -41,7 +42,7 @@ public class Media {
 
   public static class Builder {
 
-    private String id;
+    private @Nullable String id;
 
     protected Builder() {}
 

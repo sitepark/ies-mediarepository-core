@@ -3,15 +3,12 @@ package com.sitepark.ies.mediarepository.core.domain.entity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
-@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
 class MediaReferenceTest {
 
   @Test
-  @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
   void testEquals() {
     EqualsVerifier.forClass(MediaReference.class).verify();
   }
@@ -28,7 +25,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testMissingMediaId() {
     assertThrows(
         IllegalStateException.class,
@@ -36,7 +32,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testSetInvalidMediaId() {
     assertThrows(
         NullPointerException.class,
@@ -56,7 +51,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testMissingUsedBy() {
     assertThrows(
         IllegalStateException.class,
@@ -64,7 +58,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testSetInvalidUsedBy() {
     assertThrows(
         NullPointerException.class,
@@ -84,7 +77,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings({"NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS", "RV_EXCEPTION_NOT_THROWN"})
   void testSetNullType() {
     assertThrows(
         NullPointerException.class,
@@ -93,7 +85,6 @@ class MediaReferenceTest {
   }
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testMissingType() {
     assertThrows(
         IllegalStateException.class,
