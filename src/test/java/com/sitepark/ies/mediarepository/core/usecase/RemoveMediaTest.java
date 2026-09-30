@@ -9,13 +9,11 @@ import static org.mockito.Mockito.when;
 import com.sitepark.ies.mediarepository.core.port.AccessControl;
 import com.sitepark.ies.mediarepository.core.port.MediaRepository;
 import com.sitepark.ies.sharedkernel.security.AccessDeniedException;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Test;
 
 class RemoveMediaTest {
 
   @Test
-  @SuppressFBWarnings("RV_EXCEPTION_NOT_THROWN")
   void testAccessDenied() {
 
     AccessControl accessControl = mock(AccessControl.class);
@@ -25,7 +23,6 @@ class RemoveMediaTest {
     assertThrows(AccessDeniedException.class, () -> removeMedia.removeMedia("10"));
   }
 
-  @SuppressWarnings("PMD")
   @Test
   void testRemoveMedia() {
 
